@@ -1,47 +1,37 @@
 package com.example.mhiru
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mhiru.databinding.ActivityMainGuestBinding
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mhiru.ui.ChatItem
+import com.example.mhiru.ui.ChatListAdapter
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainGuestBinding
+    private lateinit var chatsAdapter: ChatListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.chat_list)
+        val recyclerview=findViewById<RecyclerView>(R.id.rvchat_list)
 
-        binding = ActivityMainGuestBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        chatsAdapter= ChatListAdapter(mutableListOf())
+        recyclerview.adapter=chatsAdapter
+        recyclerview.layoutManager=LinearLayoutManager(this)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
+        //test if chatList interface works
+        val item1=ChatItem("Marcelo Rebelo Pinto","08/05/1914")
+        val item2=ChatItem("Famous Austrian Painter","08/05/2024")
+        val item3=ChatItem("Rebeca Stallone","08/05/1258")
+        val item4=ChatItem("Cristiano Ronaldo","08/05/2020")
+        chatsAdapter.addItem(item1)
+        chatsAdapter.addItem(item2)
+        chatsAdapter.addItem(item3)
+        chatsAdapter.addItem(item4)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_guest_layout)
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,8 +40,5 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
+
 }
