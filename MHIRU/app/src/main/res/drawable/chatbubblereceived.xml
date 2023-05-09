@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Background color for the chat bubble -->
+    <solid android:color="@color/green" />
+
+    <!-- Border color and thickness for the chat bubble -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/white" />
+
+    <!-- Rounded corners for the chat bubble -->
+    <corners
+        android:radius="16dp"
+        android:topLeftRadius="16dp"
+        android:bottomLeftRadius="16dp"
+        android:topRightRadius="0dp"
+        android:bottomRightRadius="16dp" />
+
+</shape>
