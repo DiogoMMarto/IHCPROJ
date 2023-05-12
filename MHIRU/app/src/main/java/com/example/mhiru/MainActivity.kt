@@ -1,44 +1,72 @@
 package com.example.mhiru
 
+
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.Menu
+import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mhiru.ui.ChatItem
-import com.example.mhiru.ui.ChatListAdapter
+import com.example.mhiru.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var chatsAdapter: ChatListAdapter
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.chat_list)
-        val recyclerview=findViewById<RecyclerView>(R.id.rvchat_list)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.appBarMain.toolbar)
 
-        chatsAdapter= ChatListAdapter(mutableListOf())
-        recyclerview.adapter=chatsAdapter
-        recyclerview.layoutManager=LinearLayoutManager(this)
+        val drawerLayout: DrawerLayout = binding.drawerLayout
+        var navView: NavigationView = binding.navView
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
 
-        //test if chatList interface works
-        val item1=ChatItem("Marcelo Rebelo Pinto","08/05/1914")
-        val item2=ChatItem("Famous Austrian Painter","08/05/2024")
-        val item3=ChatItem("Rebeca Stallone","08/05/1258")
-        val item4=ChatItem("Cristiano Ronaldo","08/05/2020")
-        chatsAdapter.addItem(item1)
-        chatsAdapter.addItem(item2)
-        chatsAdapter.addItem(item3)
-        chatsAdapter.addItem(item4)
+                R.id.nav_chats,R.id.nav_home,R.id.nav_form, R.id.nav_ai, R.id.nav_aboutus, R.id.nav_profile,
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+        val intent = intent
+        if (intent.hasExtra("key")) {
+            val myValue = intent.getStringExtra("key")
+
+
+            if (myValue.equals("professional")) {
+                navView.menu.clear()
+                navView.inflateMenu(R.menu.activity_main_drawer_professional)
+
+            }
+            else if(myValue.equals("client")){
+                navView.menu.clear()
+                navView.inflateMenu(R.menu.activity_main_drawer_logoff)
+            }
+            else{
+                navView.menu.clear()
+                navView.inflateMenu(R.menu.activity_main_drawer_login)
+            }
+        }
 
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
 
-
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
 }
