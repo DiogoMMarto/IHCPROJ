@@ -3,8 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
+    <fragment
+        android:id="@+id/nav_chats"
+        android:name="com.example.mhiru.ui.chats.ChatListFragment"
+        android:label="ChatList"
+        tools:layout="@layout/fragment_chat_list" />
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.mhiru.ui.home.HomeFragment"
@@ -12,19 +17,43 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.mhiru.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_ai"
+        android:name="com.example.mhiru.ui.chat_bot.ChatBotFragment"
+        android:label="ChatBot"
+        tools:layout="@layout/fragment_chat_bot" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.mhiru.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_form"
+        android:name="com.example.mhiru.ui.form.FormFragment"
+        android:label="Form"
+        tools:layout="@layout/fragment_form" />
+
     <fragment
-        android:id="@+id/nav_chats"
-        android:name="com.example.mhiru.ui.slideshow.ChatsFragment"
-        android:label="ChatList"
-        tools:layout="@layout/chat_list" />
+        android:id="@+id/nav_aboutus"
+        android:name="com.example.mhiru.ui.about_us.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.mhiru.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.mhiru.ui.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.mhiru.ui.logout.LogoutFragment"
+        android:label="Logout"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_clients"
+        android:name="com.example.mhiru.ui.clients.ClientsFragment"
+        android:label="Clients"
+        tools:layout="@layout/fragment_clients" />
 </navigation>

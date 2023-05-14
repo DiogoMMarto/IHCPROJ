@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mhiru.R
 import org.w3c.dom.Text
 
-class ChatListAdapter(
+class ClientsListAdapter(
     private val items:MutableList<ChatItem>
-):RecyclerView.Adapter<ChatListAdapter.ItemsViewHolder>()
+):RecyclerView.Adapter<ClientsListAdapter.ItemsViewHolder>()
 {
     class ItemsViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemsViewHolder {
         return  ItemsViewHolder(
                 LayoutInflater.from(parent.context).inflate(
-                R.layout.chat_item,
+                R.layout.client_item,
                 parent,
                 false
             )
