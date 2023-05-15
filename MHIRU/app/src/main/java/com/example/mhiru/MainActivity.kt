@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         var navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val navController = findNavController(R.id.fragment_container)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
@@ -57,6 +58,10 @@ class MainActivity : AppCompatActivity() {
                 navView.inflateMenu(R.menu.activity_main_drawer_login)
             }
         }
+        if (intent.hasExtra("fragmentToLoad")) {
+            val myValue = intent.getStringExtra("fragmentToLoad")
+            navController.navigate(R.id.nav_profile)
+        }
 
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -66,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        val navController = findNavController(R.id.fragment_container)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

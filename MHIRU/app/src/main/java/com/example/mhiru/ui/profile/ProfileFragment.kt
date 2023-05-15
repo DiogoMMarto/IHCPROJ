@@ -29,10 +29,7 @@ class ProfileFragment : Fragment() {
 
         // Use the null-check operator (?.) to safely access `binding`
         val root: View = binding.root
-        val textView: TextView = binding.textProfile
-        profileViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+
         return root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -43,4 +40,5 @@ class ProfileFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
