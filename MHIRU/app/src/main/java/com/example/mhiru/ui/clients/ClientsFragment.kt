@@ -5,16 +5,17 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mhiru.R
 import com.example.mhiru.databinding.FragmentClientsBinding
 import com.example.mhiru.ui.ChatItem
-import com.example.mhiru.ui.ChatListAdapter
 import com.example.mhiru.ui.ClientsListAdapter
 
 class ClientsFragment : Fragment() {
@@ -48,6 +49,23 @@ class ClientsFragment : Fragment() {
         clientsAdapter.addItem(item2)
         //clientsAdapter.addItem(item3)
         //clientsAdapter.addItem(item4)
+
+        val addView = binding.addBox
+        val addBtn = binding.addBox.addBtn
+        val appearBtn = binding.appearBtn
+
+        appearBtn.setOnClickListener {
+            addView.root.visibility = VISIBLE
+        }
+
+        addBtn.setOnClickListener {
+            addView.root.visibility = INVISIBLE
+            val item3= ChatItem("Rebeca Stallone","PENDING")
+            clientsAdapter.addItem(item3)
+            clientsAdapter.notifyDataSetChanged()
+        }
+
+
         return root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
