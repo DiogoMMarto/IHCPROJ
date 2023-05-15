@@ -39,6 +39,7 @@
             android:inputType="text"
             android:maxLines="1"
             android:paddingTop="4dp"
+            android:paddingLeft="4dp"
             android:paddingBottom="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

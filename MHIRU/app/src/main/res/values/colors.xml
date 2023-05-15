@@ -12,4 +12,7 @@
     <color name="gray_ligth">#888888</color>
     <color name="blue">#00d5ff</color>
     <color name="white_90">#FBFBFB</color>
+    <color name="red_100">#FF0000</color>
+    <color name="red_50">#770000</color>
+    <color name="light_red">#FF5555</color>
 </resources>

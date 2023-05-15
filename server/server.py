@@ -1,15 +1,19 @@
 import openai
 from flask import Flask,request
 
-openai.api_key="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"
+openai.api_key="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"
 
+global messages
 messages = [ {"role": "system", "content": 
               "You are a chatbot that provides mental support. Do not respond to unrelated topics.Try to keep responses under 200 characters."} ]
 
 app = Flask(__name__)
 
 @app.route("/EmphatyChat",methods=["POST"])
+@app.route("/EmphatyChat/chat",methods=["POST"])
 def chat():
+    global messages
+
     message = request.form["user_text"]
     # print(f"User: {message}")
     if message:
@@ -25,11 +29,28 @@ def chat():
     return reply
 
 @app.route("/EmphatyChat",methods=["GET"])
+@app.route("/EmphatyChat/chat",methods=["GET"])
 def lastChat():
+    global messages
+
     return messages
 
+
+@app.route("/EmphatyChat/emergencyModeOn")
+def emode():
+    global messages
+
+    print("EOFF")
+    messages = [ {"role": "system", "content": 
+              "You are to provide helpfull responses.You are talking to a person in stress. Do not respond to unrelated topics.Try to keep responses under 20 characters."} ]
+    return messages
+
+
 @app.route("/EmphatyChat/clear")
+@app.route("/EmphatyChat/emergencyModeOff")
 def clearChat():
+    global messages
+
     messages = [ {"role": "system", "content": 
               "You are a chatbot that provides mental support. Do not respond to unrelated topics.Try to keep responses under 200 characters."} ]
     return messages
