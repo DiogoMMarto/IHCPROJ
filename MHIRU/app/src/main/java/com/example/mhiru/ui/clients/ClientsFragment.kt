@@ -39,15 +39,15 @@ class ClientsFragment : Fragment() {
         recyclerview.layoutManager= LinearLayoutManager(context)
 
         //test if chatList interface works
-        val item1= ChatItem("Marcelo Rebelo Pinto","08/05/1914")
-        val item2= ChatItem("Famous Austrian Painter","08/05/2024")
-        val item3= ChatItem("Rebeca Stallone","08/05/1258")
-        val item4= ChatItem("Cristiano Ronaldo","08/05/2020")
+        val item1= ChatItem("Mark Smith","Online")
+        val item2= ChatItem("Susan Griffin","Last online: 2 hours ago")
+        //val item3= ChatItem("Rebeca Stallone","08/05/1258")
+        //val item4= ChatItem("Cristiano Ronaldo","08/05/2020")
 
         clientsAdapter.addItem(item1)
         clientsAdapter.addItem(item2)
-        clientsAdapter.addItem(item3)
-        clientsAdapter.addItem(item4)
+        //clientsAdapter.addItem(item3)
+        //clientsAdapter.addItem(item4)
         return root
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
