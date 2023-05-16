@@ -96,7 +96,7 @@ class ChatBotFragment : Fragment() {
         val messageEditText = chatView.chatInputField
 
 
-        val chatBubble = ChatBubble("Hello, Im Emphaty", false,LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM-dd HH:mm")).toString())
+        val chatBubble = ChatBubble("Hello, I'm Empathy", false,LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM-dd HH:mm")).toString())
         chatBubbles.add(chatBubble)
         adapter.notifyDataSetChanged()
 

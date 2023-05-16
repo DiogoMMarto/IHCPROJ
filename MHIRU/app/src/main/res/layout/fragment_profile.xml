@@ -110,7 +110,7 @@
                 android:textColor="@color/gray"
 
                 android:textSize="15dp"
-                android:text="Frequent conversation topics:\n   -Running"
+                android:text="Frequent conversation topics:\n   - Grief"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="5dp"/>
         </LinearLayout>
@@ -172,7 +172,7 @@
                 android:layout_height="match_parent"
                 android:textSize="15dp"
                 android:textColor="@color/gray"
-                android:text="-Owns way too much shoes"
+                android:text="- Mom has recently passed away"
                 android:layout_marginLeft="25dp"/>
 
             <TextView
@@ -182,7 +182,7 @@
                 android:textColor="@color/gray"
 
                 android:textSize="15dp"
-                android:text="-Mom dead 🦀 L Skill Issue"
+                android:text="- Has difficulties opening up"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="5dp"/>
 
@@ -207,7 +207,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Conversations with emphaty:"
+                android:text="Conversations with empathy:"
                 android:textColor="@color/gray"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"

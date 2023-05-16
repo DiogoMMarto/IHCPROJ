@@ -42,7 +42,7 @@ class ClientsFragment : Fragment() {
         recyclerview.layoutManager= LinearLayoutManager(context)
 
         //test if chatList interface works
-        val item1= ChatItem("Mark Smith","Online")
+        val item1= ChatItem("Rebeca Stallone","Online")
         val item2= ChatItem("John Griffin","Last online: 2 hours ago")
         //val item3= ChatItem("Rebeca Stallone","08/05/1258")
 
@@ -61,7 +61,7 @@ class ClientsFragment : Fragment() {
 
         addBtn.setOnClickListener {
             addView.root.visibility = INVISIBLE
-            val item3= ChatItem("Rebeca Stallone","PENDING")
+            val item3= ChatItem("Mark Smith","PENDING")
             clientsAdapter.addItem(item3)
             clientsAdapter.notifyDataSetChanged()
         }
