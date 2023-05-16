@@ -31,12 +31,12 @@ class ProfileFragment : Fragment() {
 
         // Use the null-check operator (?.) to safely access `binding`
         val root: View = binding.root
+        val tochatbtn=binding.button2
 
-/*
         tochatbtn.setOnClickListener {
-            val intent = Intent(requireContext(),Conversation::class.java)
+            val intent = Intent(context,Conversation::class.java)
             startActivity(intent)
-        }*/
+        }
 
         return root
     }
