@@ -10,7 +10,7 @@ class ServerP(private val client: OkHttpClient = OkHttpClient.Builder().readTime
 
     public fun chatWithEmphaty(input:String): String{
         val request = Request.Builder()
-            .url("http://192.168.0.105:5000/EmphatyChat/chat")
+            .url("http://192.168.47.243:5000/EmphatyChat/chat")
             .post(FormBody.Builder()
                 .add("user_text",input)
                 .build())
@@ -22,7 +22,7 @@ class ServerP(private val client: OkHttpClient = OkHttpClient.Builder().readTime
 
     public fun eModeON(): String{
         val request = Request.Builder()
-            .url("http://192.168.0.105:5000/EmphatyChat/emergencyModeOn")
+            .url("http://192.168.47.243:5000/EmphatyChat/emergencyModeOn")
             .build()
         val response: Response = client.newCall(request).execute()
         return response.body?.string() ?: ""
@@ -30,7 +30,7 @@ class ServerP(private val client: OkHttpClient = OkHttpClient.Builder().readTime
 
     public fun eModeOff(): String{
         val request = Request.Builder()
-            .url("http://192.168.0.105:5000/EmphatyChat/emergencyModeOff")
+            .url("http://192.168.47.243:5000/EmphatyChat/emergencyModeOff")
             .build()
         val response: Response = client.newCall(request).execute()
         return response.body?.string() ?: ""

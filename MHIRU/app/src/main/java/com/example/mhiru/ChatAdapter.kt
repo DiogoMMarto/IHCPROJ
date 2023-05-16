@@ -37,7 +37,6 @@ class ChatAdapter(private val inflater: LayoutInflater, private val chatBubbles:
         } else {
             holder = view.tag as ViewHolder
         }
-
         val chatBubble = chatBubbles[position]
         holder.messageTextView?.text = chatBubble.message
         holder.time?.text = chatBubble.time
