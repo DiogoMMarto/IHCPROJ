@@ -10,7 +10,7 @@ class ServerP(private val client: OkHttpClient = OkHttpClient.Builder().readTime
 
     public fun chatWithEmphaty(input:String): String{
         val request = Request.Builder()
-            .url("http://192.168.47.243:5000/EmphatyChat/chat")
+            .url("http://192.168.35.220:5000/EmphatyChat/chat")
             .post(FormBody.Builder()
                 .add("user_text",input)
                 .build())

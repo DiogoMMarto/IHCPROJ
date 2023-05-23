@@ -6,7 +6,7 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/blue"
-    tools:context="ui.profile.ProfileFragment">
+    tools:context="ProfileT">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
