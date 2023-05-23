@@ -1,22 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.form.FormFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.form.FormFragment">
+    android:orientation="vertical"
+    android:padding="16dp"
+    >
 
     <TextView
-        android:id="@+id/text_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
+        android:text="Mental Health Questionnaire"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Name Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <!-- Gender Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"/>
+
+        <RadioButton
+            android:id="@+id/radio_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"/>
+
+        <RadioButton
+            android:id="@+id/radio_heli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boeing AH-64 Apache Attack Helicopter"/>
+
+        <RadioButton
+            android:id="@+id/radio_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other"/>
+
+    </RadioGroup>
+
+    <!-- Age Field -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edit_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. How often do you feel anxious or worried?"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_anxiety"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_anxiety_never"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Never"/>
+
+        <RadioButton
+            android:id="@+id/radio_anxiety_sometimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sometimes"/>
+
+        <RadioButton
+            android:id="@+id/radio_anxiety_often"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Often"/>
+
+        <RadioButton
+            android:id="@+id/radio_anxiety_always"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Always"/>
+
+    </RadioGroup>
+
+    <!-- Add more questions and radio groups for other questionnaire items -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. How would you rate your overall mood?"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group_mood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio_mood_very_poor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Very Poor"/>
+
+        <RadioButton
+            android:id="@+id/radio_mood_poor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Poor"/>
+
+        <RadioButton
+            android:id="@+id/radio_mood_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Average"/>
+
+        <RadioButton
+            android:id="@+id/radio_mood_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good"/>
+
+        <RadioButton
+            android:id="@+id/radio_mood_very_good"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Very Good"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="More comments"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edit_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"/>
+
+</LinearLayout>
+</ScrollView>

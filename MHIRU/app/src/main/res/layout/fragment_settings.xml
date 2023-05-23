@@ -48,8 +48,7 @@ android:background="@color/white"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="80dp"
             android:textSize="16sp"
-            android:layout_gravity="center_horizontal"
-            android:text="+351 912 345 678" />
+            android:text="Phone +351 912 345 678" />
 
     </LinearLayout>
 
