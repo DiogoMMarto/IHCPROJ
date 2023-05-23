@@ -1,6 +1,7 @@
 package com.example.mhiru.ui.clients
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -11,6 +12,7 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -54,12 +56,17 @@ class ClientsFragment : Fragment() {
         val addView = binding.addBox
         val addBtn = binding.addBox.addBtn
         val appearBtn = binding.appearBtn
-        val img=binding.
+        val cl = binding.clients
+
         appearBtn.setOnClickListener {
+            cl.root.foreground = ContextCompat.getDrawable(requireContext(),R.color.dim)
             addView.root.visibility = VISIBLE
+            appearBtn.visibility = INVISIBLE
         }
 
         addBtn.setOnClickListener {
+            cl.root.foreground = ContextCompat.getDrawable(requireContext(),R.color.nodim)
+            appearBtn.visibility = VISIBLE
             addView.root.visibility = INVISIBLE
             val item3= ChatItem("Mark Smith","PENDING")
             clientsAdapter.addItem(item3)
