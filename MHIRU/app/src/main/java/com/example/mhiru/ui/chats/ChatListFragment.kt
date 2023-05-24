@@ -16,6 +16,7 @@ import com.example.mhiru.R
 import com.example.mhiru.databinding.FragmentChatListBinding
 import com.example.mhiru.ui.ChatItem
 import com.example.mhiru.ui.ChatListAdapter
+import com.example.mhiru.ui.LogListAdapter
 
 class ChatListFragment : Fragment() {
 
@@ -39,7 +40,7 @@ class ChatListFragment : Fragment() {
 
         val recyclerview=root.findViewById<RecyclerView>(R.id.rvchat_list)
 
-        var chatsAdapter = ChatListAdapter(mutableListOf())
+        var chatsAdapter = LogListAdapter(mutableListOf())
         recyclerview.adapter=chatsAdapter
         recyclerview.layoutManager= LinearLayoutManager(context)
 

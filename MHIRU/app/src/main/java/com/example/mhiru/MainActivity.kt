@@ -1,10 +1,9 @@
 package com.example.mhiru
 
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
+import android.view.View
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mhiru.databinding.ActivityMainBinding
+import com.example.mhiru.ui.conversation.ConversationFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -33,8 +33,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-
-                R.id.nav_chats,R.id.nav_home,R.id.nav_form, R.id.nav_ai, R.id.nav_aboutus, R.id.nav_profile,
+                R.id.nav_form, R.id.nav_ai, R.id.nav_aboutus, R.id.nav_profile,R.id.nav_clients, R.id.nav_chats, R.id.nav_settings, R.id.nav_conversations
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -47,22 +46,37 @@ class MainActivity : AppCompatActivity() {
             if (myValue.equals("professional")) {
                 navView.menu.clear()
                 navView.inflateMenu(R.menu.activity_main_drawer_professional)
+                navController.navigate(R.id.nav_clients)
+                binding.appBarMain.profilebtn.visibility= View.VISIBLE
+                GlobalVariables.user="professional"
 
             }
             else if(myValue.equals("client")){
                 navView.menu.clear()
                 navView.inflateMenu(R.menu.activity_main_drawer_logoff)
+                binding.appBarMain.profilebtn.visibility= View.VISIBLE
+                GlobalVariables.user="client"
             }
-            else{
+            else if(myValue.equals("guest")){
                 navView.menu.clear()
                 navView.inflateMenu(R.menu.activity_main_drawer_login)
+                GlobalVariables.user="guest"
+
             }
         }
         if (intent.hasExtra("fragmentToLoad")) {
-            val myValue = intent.getStringExtra("fragmentToLoad")
-            navController.navigate(R.id.nav_profile)
+            var myValue = intent.getStringExtra("fragmentToLoad")
+            if (myValue.equals("conversation")) {
+                ConversationFragment()
+                navController.navigate(R.id.nav_conversation)
+            } else {
+                navController.navigate(R.id.nav_profile)
+            }
         }
+        binding.appBarMain.profilebtn.setOnClickListener {
+            navController.navigate(R.id.nav_profile)
 
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mhiru.databinding.ChatBinding
-import com.example.mhiru.databinding.ConversationBinding
+import com.example.mhiru.databinding.FragmentConversationBinding
 import com.example.test.ChatAdapter
 import com.example.test.ChatBubble
 import java.time.LocalDateTime
@@ -21,7 +21,7 @@ class Conversation : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding=ConversationBinding.inflate(layoutInflater)
+        val binding=FragmentConversationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val chatListView = binding.include.chatListView
@@ -34,11 +34,6 @@ class Conversation : AppCompatActivity() {
         chatBubbles.add(chatBubble)
         adapter.notifyDataSetChanged()
         chatListView.smoothScrollToPosition(chatBubbles.size - 1)
-        binding.imageButton2.setOnClickListener {
-            val intent=Intent(this,MainActivity::class.java)
-            intent.putExtra("key","client")
-            startActivity(intent)
-        }
         val sendButton=binding.include.chatSendButton
         sendButton.setOnClickListener {
             val message = binding.include.chatInputField.text.toString()
