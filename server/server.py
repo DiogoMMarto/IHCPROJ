@@ -1,7 +1,7 @@
 import openai
 from flask import Flask,request
 
-openai.api_key="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"
+openai.api_key="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"
 
 global messages
 messages = [ {"role": "system", "content": 
