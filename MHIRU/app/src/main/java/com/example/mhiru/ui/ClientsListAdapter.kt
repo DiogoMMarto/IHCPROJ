@@ -2,11 +2,13 @@ package com.example.mhiru.ui;
 
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings.Global
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mhiru.GlobalVariables
 import com.example.mhiru.MainActivity
 import com.example.mhiru.R
 
@@ -39,7 +41,7 @@ class ClientsListAdapter(
         val curItem=items[position]
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, MainActivity::class.java)
-
+            intent.putExtra("key",GlobalVariables.user)
             intent.putExtra("fragmentToLoad", "ProfileFragment")
             holder.itemView.context.startActivity(intent)
         }
