@@ -18,8 +18,7 @@
         android:id="@+id/imageView8"
         android:layout_width="86dp"
         android:layout_height="72dp"
-        android:background="drawable/logo"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:background="@drawable/dalle_2023_05_24_10_24_58___pixel_art_of_a_sheep_robot_chatting_icon_for_app_3"/>
 
     <TextView
         android:layout_width="match_parent"

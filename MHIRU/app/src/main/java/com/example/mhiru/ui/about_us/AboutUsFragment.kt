@@ -29,10 +29,6 @@ class AboutUsFragment : Fragment() {
         _binding = FragmentAboutUsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textAboutus
-        aboutUsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return root
     }
 
