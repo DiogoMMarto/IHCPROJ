@@ -7,12 +7,11 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.mhiru.Conversation
+import com.example.mhiru.GlobalVariables
+import com.example.mhiru.MainActivity
 import com.example.mhiru.R
-import com.example.mhiru.databinding.FragmentChatBotBinding
 import com.example.mhiru.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -34,7 +33,10 @@ class ProfileFragment : Fragment() {
         val tochatbtn=binding.button2
 
         tochatbtn.setOnClickListener {
-            val intent = Intent(context,Conversation::class.java)
+            val intent = Intent(context,MainActivity::class.java)
+            intent.putExtra("fragmentToLoad","conversation")
+            intent.putExtra("key",GlobalVariables.user)
+
             startActivity(intent)
         }
 

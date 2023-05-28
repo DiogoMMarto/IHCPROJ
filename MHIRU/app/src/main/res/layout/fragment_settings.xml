@@ -28,6 +28,7 @@ android:background="@color/white"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
+                android:background="@drawable/man_avatar_svgrepo_com"
                 tools:src="@tools:sample/avatars" />
 
             <TextView

@@ -16,12 +16,6 @@
         android:label="Chat List"
         tools:layout="@layout/fragment_conversation_list" />
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.mhiru.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
-
-    <fragment
         android:id="@+id/nav_ai"
         android:name="com.example.mhiru.ui.chat_bot.ChatBotFragment"
         android:label="ChatBot"
@@ -61,9 +55,16 @@
         android:name="com.example.mhiru.ui.clients.ClientsFragment"
         android:label="Clients"
         tools:layout="@layout/fragment_clients" />
+
     <fragment
         android:id="@+id/nav_conversation"
-        android:name="com.example.mhiru.ui."
-        android:label="Clients"
-        tools:layout="@layout/fragment_clients" />
+        android:name="com.example.mhiru.ui.conversation.ConversationFragment"
+        android:label="Conversation"
+        tools:layout="@layout/fragment_conversation" />
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.mhiru.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
+
 </navigation>
