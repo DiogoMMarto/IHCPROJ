@@ -45,9 +45,9 @@ class ChatListFragment : Fragment() {
         recyclerview.layoutManager= LinearLayoutManager(context)
 
         //test if chatList interface works
-        val item1= ChatItem("Dealing with grief","08/05/2023")
+        val item1= ChatItem("Dealing with grief","11/05/2023")
         val item2= ChatItem("Self-reflection","10/05/2023")
-        val item3= ChatItem("Today was a good day","11/05/2023")
+        val item3= ChatItem("Today was a good day","8/05/2023")
         //val item4= ChatItem("Cristiano Ronaldo","08/05/2020")
 
         chatsAdapter.addItem(item1)
