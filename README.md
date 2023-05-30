@@ -8,7 +8,7 @@ Projecto de IHC 2023
 é necessário ter uma ferramente compatível com esse formato, como por exemplo um ambiente como
 o Android Studio.
 
-   O nosso ChatBot apenas funciona se o servidor em python estiver a correr. É esse servidor que 
+   O nosso ChatBot apenas funciona se o servidor em python estiver a correr e as configurações de android estiverem a permitirem o ip correto no ficheiro netwrok.xml e server.ktn. É esse servidor que 
 comunica com a API da OpenAI a fim de obter a resposta aos inputs do Utilizador. Assim, é necessário
 uma key da OpenAI. Ao darmos push da key, como ferramenta de segurança, a mesma fica desativada e é 
 necessário requerer uma nova. Assim, se o senhor professor(a) desejar testar o ChatBot pode contactar-nos
