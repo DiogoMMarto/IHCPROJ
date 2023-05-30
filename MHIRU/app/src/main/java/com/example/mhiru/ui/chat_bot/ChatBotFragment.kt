@@ -66,7 +66,14 @@ class ChatBotFragment : Fragment() {
 
 
                 thread {
-                    server.eModeON()
+                    try {
+                        server.eModeON()
+                    } catch(e: Exception){
+                        val chatBubble = ChatBubble("Error entering emergency mode", false,current)
+                        chatBubbles.add(chatBubble)
+                        adapter.notifyDataSetChanged()
+                        chatListView.smoothScrollToPosition(chatBubbles.size - 1)
+                    }
                 }
 
 
@@ -86,7 +93,14 @@ class ChatBotFragment : Fragment() {
 
 
                 thread {
-                    server.eModeOff()
+                    try {
+                        server.eModeOff()
+                    } catch(e: Exception){
+                        val chatBubble = ChatBubble("Error exiting emergency mode", false,current)
+                        chatBubbles.add(chatBubble)
+                        adapter.notifyDataSetChanged()
+                        chatListView.smoothScrollToPosition(chatBubbles.size - 1)
+                    }
                 }
                 eMode = false
             }
